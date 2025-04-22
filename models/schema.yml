@@ -2,5 +2,29 @@ sources:
   - name: gz_raw_data
     tables:
       - name: raw_gz_sales
+        description: Sales of Greenweez
+        columns:
+          - name: orders_id
+          - name: pdt_id
+            tests:
+              - unique:          
+                  column_name: "(orders_id || '-' || pdt_id)"
+              
       - name: raw_gz_product
+        description: product data
+        columns:
+          - name: products_id
+            description: Primary key
+            tests:
+              - unique
+              - not_null          
       - name: raw_gz_ship
+        description: Shipping data
+        columns:
+          - name: orders_id
+            description: Primary key
+            tests:
+              - unique 
+              - not_null
+              
+
