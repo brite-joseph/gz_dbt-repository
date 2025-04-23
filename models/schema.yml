@@ -6,9 +6,9 @@ sources:
         columns:
           - name: orders_id
           - name: pdt_id
-            tests:
-              - unique:          
-                  column_name: "(orders_id || '-' || pdt_id)"
+        tests:
+          - unique:          
+              column_name: "(orders_id || '-' || pdt_id)"
               
       - name: raw_gz_product
         description: product data
