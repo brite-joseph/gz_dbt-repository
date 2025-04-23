@@ -26,5 +26,46 @@ sources:
             tests:
               - unique 
               - not_null
+models:
+  - name: int_sales_margin
+    description: margin calculation per order
+    columns:
+      - name: orders_id
+        description: orders key
+        tests:
+          - not_null
+      - name: products_id
+        description: products key
+        tests:
+          - not_null
+      - name: date_date
+        description: date of the order
+        tests:
+          - not_null
+      - name: revenue
+        description: revenue 
+        tests:
+          - not_null
+      - name: quantity
+        description: quantity
+        tests:
+          - not_null
+      - name: purchase_price
+        description: purchase price
+        tests:
+          - not_null
+      - name: purchase_cost
+        description: purchase cost = quantity * purchase price
+        tests:
+          - not_null
+      - name: margin
+        description: margin = revenue - purchase cost
+        tests:
+          - not_null
+    tests:
+      - unique:
+          column_name: "(orders_id || '-' || products_id)"
+        
+
               
 
